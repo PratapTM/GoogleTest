@@ -18,7 +18,7 @@ public class BaseTestClass {
 	public static WebDriver driver;
 
 	public WebDriver initilaztionDriver() throws IOException {
-
+		String driverPath = System.getProperty("user.dir") + "\\drivers\\chromedriver.exe";
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\Global.properties");
 		prop.load(fis);
@@ -26,6 +26,7 @@ public class BaseTestClass {
 		String url = prop.getProperty("url");
 
 		if (browser.equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver", driverPath);
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
 			WebDriverManager.chromedriver().setup();
