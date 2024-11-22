@@ -15,7 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTestClass {
 	
 	public static WebDriver driver;
-//	public LandingPage landingPage;
+
 
 	public WebDriver initilaztionDriver() throws IOException {
 
@@ -39,17 +39,17 @@ public class BaseTestClass {
 
 	}
 	
-	@BeforeMethod(alwaysRun=true)
+	@BeforeMethod
 	public void lunchApp() throws IOException {
 		driver=initilaztionDriver();
 	}
 	
-	@BeforeMethod(alwaysRun=true)
+	@BeforeMethod
 	public WebDriver getDriver() throws IOException {
 		return driver;
 	}
 	
-	@AfterMethod(alwaysRun=true)
+	@AfterMethod
 	public void closeApp() {
 		driver.quit();
 	}
