@@ -7,15 +7,14 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTestClass {
 	
 	public static WebDriver driver;
-
 
 	public WebDriver initilaztionDriver() throws IOException {
 
@@ -39,17 +38,12 @@ public class BaseTestClass {
 
 	}
 	
-	@BeforeMethod
+	@BeforeSuite
 	public void lunchApp() throws IOException {
 		driver=initilaztionDriver();
 	}
 	
-	@BeforeMethod
-	public WebDriver getDriver() throws IOException {
-		return driver;
-	}
-	
-	@AfterMethod
+	@AfterSuite
 	public void closeApp() {
 		driver.quit();
 	}
